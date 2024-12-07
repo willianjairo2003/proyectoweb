@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+   
+    <body>
+           <header>
+            <input type="checkbox" name="" id="chk1">
+            <div class="logo">
+            <a href="index.html"> 
+            <img src="imagenes/logo.png" alt="Logo" class="logo-img">
+            <h2 class="logo-title"><em>JAalfa</em></h2>
+            </a>
+            </div>
+           
+            
+            <ul>
+                <li><a href="productos.html">Productos</a></li>
+                <li>
+                    <a href="#">Servicios</a>
+                    <label class="submenu-toggle" for="submenu-toggle"><i class="fa fa-chevron-down"></i></label>
+                        <input type="checkbox" id="submenu-toggle" class="submenu-toggle-input">
+                    <ul class="submenu">
+                        <li><a href="buscartienda.html">Buscar Tienda</a></li>
+                        <li><a href="registro.html">Regístrate</a></li>
+                        <li><a href="login.html">Iniciar Sesión</a></li>
+                    </ul>
+                </li>
+                <li><a href="hombres.html">Hombres</a></li>
+                <li><a href="mujeres.html">Mujeres</a></li>
+                <li><a href="guiatallas.html">Tallas</a></li>
+                <li>
+                    <a href="carritocompras.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+            </ul>
+            <div class="menu">
+                <label for="chk1">
+                    <i class="fa fa-bars"></i>
+                </label>
+            </div>
+           </header> 
+        
+        
+        
+      <div class="container">
+        <div class="image-side">
+            <img src="imagenes/imagenizquierda.png" alt="Imagen de login">
+        </div>
+        <div class="form-side">
+            <div class="contenido">
+               <!-- Imagen del logo de la aplicación -->
+               <img src="imagenes\logo.png" alt="Logo">
+            </div>
+            <h3>para poder realizar tus compras.</h3>
+            <h1><strong><em>Iniciar Sesión</em></strong></h1>
+            <form method="get" action="index.html">
+                <div class="username">
+                   <!-- Icono de usuario -->
+                   <img src="imagenes\user.png" alt="Usuario">
+                   <!-- Campo de entrada para el nombre de usuario -->
+                   <input type="text" placeholder="Nombre de usuario" size="35" required>
+                </div>
+                <div class="contrasena">
+                   <!-- Icono de candado (contraseña) -->
+                   <img src="imagenes\lock.png" alt="Contraseña">
+                   <!-- Campo de entrada para la contraseña -->
+                   <input type="password" placeholder="Password" size="35" required>
+               </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="confirm" name="confirm" required>
+                    <label for="confirm">Recordar mis credenciales para el inicio de sesión</label>
+                </div>
+               <div class="button-container">
+               <button type="submit">Iniciar sesión</button>
+               </div>
+               <div class="registrarse">¿No tienes cuenta?<a href="registro.html"> Registrate </a></div> 
+            </form>
+        </div>
+    </div>
+    <a href="https://wa.link/s586j1" class="whatsapp-icon" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a> 
+    </body>
+</html>

@@ -1,0 +1,1294 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 9 oct 2024, 21:13:23
+    Author     : JJairo
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+        
+    
+}
+
+body{
+    background-color: #f5f5f5;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    
+    
+}
+header{
+    position: fixed; /* Mantiene el header fijo en la parte superior */
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 0 10px black;
+    background: #111;
+}
+
+#chk1{
+    display: none;
+    
+}
+
+i{
+    color: white;
+    cursor: pointer;
+}
+
+
+header .logo{
+    flex:1;
+    color: white;
+    margin-left: 50px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    
+}
+
+header .logo a{
+    text-decoration: none;
+    
+}
+
+header .logo-img {
+    height: 60px; /* Ajusta la altura según sea necesario */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Alineación vertical */
+  
+}
+header .logo-title {
+    display: inline; /* Mantiene el texto en línea con el logo */
+    color: white; /* Color del texto */
+    font-size: 1.5rem; /* Tamaño de fuente, ajusta según prefieras */
+    margin-left: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Alineación vertical */
+    text-transform: none;
+}
+
+
+header .search-box{
+    flex: 1;
+    position: relative;
+}
+
+
+
+/*PRODUCT BUSQUEDA*/
+/* Estilo para la barra de búsqueda */
+.search-box {
+    position: relative;
+    width: 300px; /* Ajusta el tamaño de la barra de búsqueda */
+    margin: 0 auto; /* Centra la caja en la pantalla */
+}
+
+.search-box input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 30px;
+    color: gray;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+.search-box button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.9);
+    background: green;
+}
+
+/* Contenedor para los resultados de búsqueda */
+.search-results-container {
+    position: absolute;
+    top: 100%; /* Coloca los resultados justo debajo del input */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Asegura que los resultados estén por encima de otros elementos */
+    max-height: 300px;
+    overflow-y: auto;
+    display: none; /* Oculta los resultados por defecto */
+    border-radius: 8px; /* Bordes redondeados para el contenedor de los resultados */
+}
+
+/* Estilo para cada elemento dentro de los resultados */
+.search-results-container .product {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.search-results-container .product:hover {
+    background-color: #f1f1f1;
+}
+
+.product-thumbnail {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.product h3 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.product p {
+    font-size: 12px;
+    color: #555;
+}
+
+.product a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+header ul{
+    flex:2;
+    display: flex;
+    justify-content: space-evenly;
+}
+header ul li{
+    list-style: none;
+    position: relative;
+    
+    
+}
+header ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+}
+header ul li a:hover{
+    border-bottom: 2px solid cadetblue;
+}
+header .menu{
+    font-size: 2.5em;
+    display: none;
+}
+
+.submenu {
+    display: none; /* Ocultar por defecto */
+    position: absolute; /* Asegura que el submenú se posicione correctamente */
+    left: 0; /* Alinea el submenú al lado izquierdo */
+    right: 0; /* Asegura que ocupe todo el ancho del elemento padre */
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo del submenú */
+    z-index: 999; /* Asegura que esté por encima de otros elementos */
+    transition: all 0.3s ease; /* Suaviza la aparición y desaparición */
+}
+
+.submenu-toggle-input {
+    display: none; /* Ocultar el checkbox */
+}
+
+.submenu-toggle-input:checked + .submenu {
+    display: block; /* Mostrar el submenú cuando el checkbox está marcado */
+}
+
+.submenu li {
+    width: 100%; /* Asegura que los elementos del submenú ocupen el ancho completo */
+}
+
+.submenu li a {
+    padding: 10px 15px; /* Espaciado interno */
+    color: white; /* Color del texto del submenú */
+    display: block; /* Asegura que toda el área sea clicable */
+    text-transform: none;
+}
+
+.submenu li a:hover {
+    background-color: cadetblue; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo del icono (pacman) */
+.submenu-toggle {
+    cursor: pointer; /* Cambia el cursor para indicar clickeable */
+    color: white; /* Color del icono */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.submenu-toggle:hover {
+    color: lightgray; /* Cambia el color al pasar el ratón, pero no al hacer clic */
+}
+
+.submenu-toggle-input:checked + .submenu-toggle {
+    color: white; /* Mantiene el color original cuando el submenú está abierto */
+}
+
+
+
+.marquee-section {
+    margin-top: 100px; /* Espacio igual a la altura del header */
+    width: 100%;
+    text-align: center;
+    position: relative;
+    background-color: #f5f5f5;
+}
+
+
+
+
+
+.carousel-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 100px); /* Resta la altura del header */
+    overflow: hidden;
+    
+}
+
+.carousel {
+    position: relative;
+    height: 100%;
+}
+
+.carousel input {
+    display: none;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.carousel .slide {
+    min-width: 100%; /* Cada slide ocupa todo el contenedor */
+    height: 100%; /* Asegura que cada imagen ocupe toda la altura */
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura */
+    object-fit: cover; /* Mantiene la relación de aspecto */
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background: transparent;
+    padding: 20px;
+    z-index: 1;
+}
+.carousel-overlay h1{
+    font-size: 35px;
+}
+
+.carousel-button {
+    padding: 10px 20px;
+    background: #41c1bf;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-top: 10px;
+    display: inline-block;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.carousel-button:hover {
+    background: #e43e3e;
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+    filter: brightness(0.8);
+}
+
+/* Animaciones de cambio de imágenes */
+#slide1:checked ~ .carousel-images {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .carousel-images {
+    transform: translateX(-100%);
+}
+
+#slide3:checked ~ .carousel-images {
+    transform: translateX(-200%);
+}
+
+/* Estilo para la navegación */
+.carousel-navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel-navigation label {
+    background: white;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Cambio automático de imágenes */
+@keyframes slideAnimation {
+    0% {transform: translateX(0);}
+    33% {transform: translateX(0);}
+    36% {transform: translateX(-100%);}
+    69% {transform: translateX(-100%);}
+    72% {transform: translateX(-200%);}
+    100% {transform: translateX(-200%);}
+}
+
+.carousel-images {
+    animation: slideAnimation 13s infinite; /* Cambia el tiempo según lo necesites */
+}
+
+
+
+#productos {
+    background-color: black; /* Color de fondo */
+    padding: 20px; /* Espacio interno */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Colocar elementos en columna */
+    align-items: center; /* Centrar el contenido horizontalmente */
+}
+
+#productos h2 {
+    margin-top: 18px;
+    font-size: 37px;
+    color: white; /* Cambia el color del texto */
+    text-align: center; /* Centra el texto */
+    padding: 10px 0; /* Espacio arriba y abajo */
+}
+
+.producto-container {
+    display: flex; /* Flexbox para los productos */
+    justify-content: center; /* Centra los productos */
+    flex-wrap: wrap; /* Permite que los productos se ajusten a múltiples filas */
+    margin: 20px 0; /* Margen entre el título y los productos */
+}
+
+.producto, .producto1, .producto2 {
+    margin: 10px; /* Margen alrededor de cada producto */
+    border: 1px solid #ddd; /* Borde alrededor del producto */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno en el recuadro */
+    background-color: white; /* Color de fondo del producto */
+    transition: transform 0.3s ease; /* Efecto de transición al cambiar */
+    flex: 0 1 300px; /* Permite que cada producto tenga un ancho mínimo */
+    max-width: 300px; /* Limita el ancho máximo */
+    text-align: center; /* Centra el texto dentro del producto */
+}
+
+.producto:hover, .producto1:hover, .producto2:hover {
+    transform: scale(1.05); /* Aumentar suavemente al pasar el ratón */
+}
+
+.producto img, .producto1 img, .producto2 img {
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+}
+
+/* Estilo de los enlaces */
+.producto a, .producto1 a, .producto2 a {
+    color: black; /* Color negro para el texto del enlace */
+    text-decoration: none; /* Sin subrayado */
+    display: block; /* Hace que el enlace ocupe todo el ancho del contenedor */
+    text-align: center; /* Centra el texto dentro del enlace */
+}
+
+.ver-todos {
+    text-align: center; /* Centrar el contenido dentro del div */
+    margin: 10px 0; /* Espacio arriba y abajo del botón */
+}
+
+.btn-ver-todos {
+    display: inline-block; /* Para que el padding y el margin funcionen */
+    padding: 10px 20px; /* Espacio interno del botón */
+    background-color: #41c1bf; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.btn-ver-todos:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+    filter: brightness(0.8); /* Suaviza el brillo */
+}
+
+
+
+
+.productos-section {
+    display: flex;
+    justify-content: center; /* Centra los elementos */
+    flex-wrap: wrap; /* Permite que se envuelvan en varias filas si es necesario */
+    padding: 20px; /* Espacio alrededor del contenedor */
+}
+
+
+.hombre, .mujer {
+    display: inline-block;
+    margin: 24px; /* Espacio entre los cuadros */
+    border: 1px solid #ddd;
+    border-radius: 30px; /* Bordes redondeados para el contenedor */
+    background-color: white;
+    width: 580px; /* Ajusta el ancho según lo necesites */
+    transition: transform 0.3s, filter 0.3s;
+    overflow: hidden; /* Asegura que el contenido no se salga del borde */
+}
+
+.hombre a, .mujer a {
+    display: flex; /* Usamos flex para alinear imagen y texto */
+    flex-direction: column; /* Colocamos la imagen encima del texto */
+    text-decoration: none; /* Quitar subrayado del texto */
+    color: black; /* Color del texto */
+    height: 100%; /* Que ocupe todo el alto del div */
+}
+
+.hombre img, .mujer img {
+    width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantener proporción de la imagen */
+    border-top-left-radius: 30px; /* Esquina superior izquierda redondeada */
+    border-top-right-radius: 30px; /* Esquina superior derecha redondeada */
+    border-bottom-left-radius: 0; /* Esquina inferior izquierda no redondeada */
+    border-bottom-right-radius: 0; /* Esquina inferior derecha no redondeada */
+}
+
+.hombre h3, .mujer h3 {
+    text-align: left; /* Alinear texto a la izquierda */
+    margin: 0; /* Quitar márgenes para que no haya espacio extra */
+    padding: 10px 0; /* Espacio entre la imagen y el texto */
+    padding-left: 15px; /* Añadir un poco de espacio a la izquierda */
+}
+
+/* Asegúrate de que la siguiente línea esté presente */
+.hombre a:hover, .mujer a:hover {
+    text-decoration: none; /* Asegura que no haya subrayado al pasar el ratón */
+}
+
+.hombre:hover, .mujer:hover {
+    transform: scale(1.05); /* Aumentar el tamaño al pasar el ratón */
+    
+    filter: brightness(0.8);
+}
+
+.flecha {
+     display: inline-block;
+     margin-left: 4px; /* Espacio entre el texto y la flecha */
+     transition: transform 0.3s; /* Transición suave para el movimiento */
+}
+
+.hombre a:hover .flecha, .mujer a:hover .flecha {
+    transform: translateX(5px); /* Mueve la flecha hacia la derecha al pasar el ratón */
+}
+
+
+
+
+video {
+    width: 100%; /* Ancho responsivo del video */
+    height: auto; /* Altura automática para mantener proporciones */
+    border: none; /* Elimina el borde del video */
+    display: block; /* Elimina espacios adicionales en el contenedor */
+    margin: 0; /* Elimina márgenes del video */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    border-radius: 10px; /* Bordes redondeados */
+    
+}
+/*3 IMAGENES*/
+
+.image-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Dos columnas */
+    gap: 20px; /* Espacio entre las columnas */
+    background-color: black; /* Fondo negro */
+    padding: 20px; /* Espacio interno */
+}
+
+.section-title {
+    grid-column: 1 / -1; /* Ocupa ambas columnas */
+    text-align: left; /* Alinear a la izquierda */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: white; /* Color del texto en blanco */
+    font-size: 40px;
+    margin-left: 10px;
+   
+}
+
+.left-image {
+    display: flex; /* Para centrar la imagen grande si es necesario */
+    justify-content: center; /* Centrado horizontal */
+}
+
+.left-image img {
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 15px; /* Bordes redondeados para la imagen grande */
+}
+
+.right-images {
+    display: flex;
+    flex-direction: column; /* Coloca las imágenes pequeñas en columna */
+    justify-content: space-between; /* Espacio igual entre las imágenes pequeñas */
+}
+
+.small-image-container {
+    text-align: center; /* Centra el contenido */
+    background-color: white; /* Fondo blanco para las imágenes pequeñas */
+    border-radius: 15px; /* Bordes redondeados para los contenedores */
+    padding: 10px; /* Espacio interno */
+    margin-bottom: 10px; /* Espacio entre las imágenes pequeñas */
+    transition: transform 0.2s, opacity 0.3s; /* Transición suave para el zoom y opacidad */
+}
+
+.small-image-container:hover {
+    transform: scale(1.02); /* Efecto de zoom sutil al pasar el ratón */
+    opacity: 0.8; /* Cambia la opacidad al pasar el ratón */
+}
+
+.small-image {
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 10px; /* Bordes redondeados para las imágenes pequeñas */
+}
+
+.label {
+    color: black; /* Color negro para el texto */
+    margin-top: 5px; /* Espacio entre la imagen y el texto */
+    
+}
+
+.arrow {
+    margin-left: 5px; /* Espacio entre el texto y la flecha */
+    display: inline-block;
+    transition: transform 0.3s; /* Transición suave para el movimiento */
+}
+
+.small-image-container a {
+    text-decoration: none; /* Quitar subrayado del texto */
+}
+
+.small-image-container:hover .arrow {
+    transform: translateX(5px); /* Mueve la flecha hacia la derecha al pasar el ratón */
+}
+
+
+
+#videos2 {
+    background-color: black; /* Fondo del contenedor */
+    padding: 20px;            /* Espacio alrededor del video */
+    display: flex;            /* Alinear el contenido */
+    justify-content: center;  /* Centrar el contenido horizontalmente */
+    align-items: center;      /* Centrar el contenido verticalmente */
+    min-height: 300px;       /* Altura mínima para el contenedor */
+}
+
+#videos2 .video-container {
+    max-width: 90%;           /* Ancho máximo del video */
+    border: 2px solid #ccc;  /* Borde alrededor del video */
+    border-radius: 10px;     /* Bordes redondeados */
+    background-color: white;  /* Fondo blanco detrás del video */
+    overflow: hidden;         /* Ocultar desbordes */
+}
+
+#videos2 .video-container video {
+    width: 100%;              /* El video ocupará todo el ancho del contenedor */
+    height: auto;             /* Mantener la proporción del video */
+    object-fit: cover;        /* Ajustar el video al contenedor */
+}
+
+
+.footer1{
+   background-color: black;
+   padding-bottom: 30px; /* Asegura que el footer tenga suficiente espacio en la parte inferior */
+   padding-top: 200px;
+   
+    
+}
+
+.footer {
+    display: flex; /* Usar flexbox para el diseño de columnas */
+    justify-content: space-around; /* Espacio entre las columnas */
+    background-color: black; /* Color de fondo del pie de página */
+    padding: 20px; /* Espaciado interno */
+    
+}
+
+.footer-column {
+    flex: 1; /* Cada columna ocupa el mismo espacio */
+    text-align: left; /* Centrar el texto dentro de cada columna */
+    color: white;
+    margin: 0 70px;
+}
+
+.pagina1, .pagina2 {
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Color del texto */
+    margin-bottom: 20px;
+}
+
+.pagina2 a {
+    text-decoration: none; /* Sin subrayado en enlaces de pagina2 */
+    color: white; /* Color del texto */
+}
+
+.pagina2 a:hover {
+    text-decoration:none ; /* Subrayar al pasar el ratón */
+}
+
+
+/* Estilo para el logo */
+.footer-logo {
+    max-width: 200px; /* Ajusta el tamaño máximo del logo */
+    margin-top: -100px;
+    height: auto; /* Mantiene la proporción del logo */
+    margin-bottom: -20px; /* Espacio entre el logo y el texto de derechos reservados */
+}
+
+
+.footer-column.copyright {
+    margin-top: 100px; /* Ajusta este valor según lo necesites */
+    text-align: center; 
+}
+
+.copyright-text {
+    text-align: center; /* Centra el texto */
+    color: white; /* Color del texto */
+    margin-top: 10px; /* Espacio superior */
+    background-color: black; /* Fondo para mantener la coherencia */
+    padding: 10px; /* Espaciado interno */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+
+.copyright-text::before {
+    content: ''; /* Crea un pseudo-elemento */
+    position: absolute; /* Posición absoluta respecto al contenedor */
+    top: 0; /* Posición en la parte superior */
+    left: 0;
+    right: 0;
+    height: 1px; /* Grosor de la línea */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)); 
+    /* Degradado de blanco a transparente */
+}
+
+.pagina2 a {
+    text-decoration: none; /* Sin subrayado por defecto */
+    color: white; /* Color del texto */
+}
+
+.pagina2 a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+    color: white; /* Asegúrate de que el color se mantenga blanco */
+}
+
+.whatsapp-icon {
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 20px; /* Distancia del fondo */
+    right: 20px; /* Distancia de la derecha */
+    background-color: #25D366; /* Color de fondo de WhatsApp */
+    color: white; /* Color del ícono */
+    border-radius: 50%; /* Hace que sea circular */
+    width: 60px; /* Ancho del ícono */
+    height: 60px; /* Alto del ícono */
+    padding: 0; /* Eliminar espaciado interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    font-size: 30px; /* Ajusta el tamaño del ícono si es necesario */
+    text-align: center; /* Centrar el contenido */
+    display: flex; /* Para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.whatsapp-icon:hover {
+    background-color: #128C7E; /* Color al pasar el ratón */
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+
+
+/*PAGINA DE ENVIO */
+#Envio {
+    display: flex; /* Para usar flexbox */
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    padding: 20px; /* Espacio interno */
+    padding-top: 20px;
+    font-size: 21px;
+}
+
+#Envio h2, h4, h5 {
+    text-align: center; /* Centra el texto de los encabezados */
+    margin: 10px 0; /* Espacio entre encabezados */
+}
+
+
+
+/* VENTANA DE LA BUSCAR TIENDA*/
+#mapa {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#mapa h2 {
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Contenedor del mapa */
+.map-container {
+    position: relative; /* Posicionamiento relativo para el iframe */
+    width: 100%; /* Ancho completo */
+    overflow: hidden; /* Oculta el contenido desbordante */
+    padding-top: 56.25%; /* Mantiene la relación de aspecto 16:9 */
+}
+
+/* Iframe responsivo */
+.map-iframe {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Parte superior */
+    left: 0; /* Izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    border: 0; /* Sin borde */
+}
+
+
+
+
+/* VENTANA DE PREGUNTAS*/
+#Preguntas {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    padding: 20px; /* Espacio interno */
+    font-size: 18px; /* Tamaño de letra inicial */
+}
+
+#Preguntas h2, h4, h6, h7 {
+    text-align: center; /* Centra el texto de los encabezados */
+    margin: 10px 0; /* Espacio entre encabezados */
+}
+
+#Preguntas h2 {
+    font-size: 24px; /* Tamaño para el título principal */
+}
+
+#Preguntas h4 {
+    font-size: 20px; /* Tamaño para sub-títulos */
+}
+
+#Preguntas h6, h7 {
+    font-size: 18px; /* Tamaño para texto normal */
+}
+
+
+/*Ventana de Productos*/
+#ventanaproductos {
+    padding: 20px;
+}
+
+#ventanaproductos h2 {
+    font-size: 50px;
+    text-align: left; /* Alineación del título */
+    margin: 20px 0; /* Margen para separar el título de los filtros */
+}
+
+#ventanaproductos .filtros {
+    display: flex; /* Usa flexbox para alinear los filtros y el botón en la misma fila */
+    align-items: center; /* Alinea verticalmente en el centro */
+    justify-content: center; /* Centra los filtros en la fila */
+    gap: 15px; /* Espaciado aumentado entre los elementos */
+    margin-bottom: 20px; /* Espacio entre los filtros y los productos */
+}
+
+#ventanaproductos .filtros .filtrarBoton {
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno ajustado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+#ventanaproductos .filtros .filtrarBoton:hover {
+    transform: scale(1.05); /* Aumentar tamaño */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Evita efectos en otros elementos */
+#ventanaproductos .filtros select,
+#ventanaproductos .filtros .precio-input input {
+    transition: none; /* Sin efectos de transición */
+}
+
+
+
+#ventanaproductos .productos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 20px; /* Espaciado entre los productos */
+    margin-left: 20px;
+}
+
+#ventanaproductos .producto {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+#ventanaproductos .producto:hover {
+    transform: scale(1.05); /* Aumentar tamaño */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+#ventanaproductos .producto img {
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 8px; /* Bordes redondeados en la imagen */
+}
+
+/* Estilos para los títulos y precios */
+#ventanaproductos .producto h3 {
+    margin: 10px 0 5px; /* Espaciado superior e inferior */
+    font-size: 18px; /* Tamaño de fuente para el título */
+}
+
+#ventanaproductos .producto p {
+    margin: 5px 0; /* Espaciado superior e inferior */
+    color: #555; /* Color del precio */
+    font-size: 16px; /* Tamaño de fuente para el precio */
+}
+
+
+
+/*VENTANA DE GUIA DE TALLAS*/
+
+#Guia {
+    text-align: center; /* Centra todo el contenido dentro de esta sección */
+}
+
+
+#Guia h2, #Guia p {
+    margin: 0 auto; /* Asegura que el margen sea automático para centrar */
+}
+#Guia h2{
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+#Guia p {
+    margin-top: 20px; /* Espacio entre la imagen y el párrafo */
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.tabla-contenedor {
+    text-align: center;
+}
+
+.guia-imagen {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 20px;
+    
+}
+
+.tabla-tallas {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.tabla-tallas th, .tabla-tallas td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Nuevo CSS para cambiar el color de las filas con la clase "color-fila" */
+.color-fila {
+    background-color: plum; /* Cambia este color al que desees */
+}
+
+.color-fila1{
+    background-color: #3390ff;
+}
+
+
+
+
+
+
+
+@media(max-width:1000px) {
+    .search-box button {
+        position: absolute;
+    }
+
+    header ul {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 100px);
+        width: 100%; /* Cambié a 100% para ocupar todo el ancho */
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+
+    #chk1:checked ~ ul {
+        right: 0; /* Muestra el menú al hacer clic */
+    }
+
+    header .menu {
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .submenu {
+        position: static; /* Para que el submenú se muestre correctamente */
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+    header ul li:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el ratón */
+    }
+
+    .carousel-section {
+        height: 70vh; /* Ajusta la altura del carrusel en pantallas más pequeñas */
+    }
+
+    .carousel-overlay {
+        padding: 10px;
+    }
+
+    .carousel-button {
+        padding: 8px 16px;
+    }
+
+    .producto, .producto1, .producto2 {
+        flex: 0 1 45%; /* Dos productos por fila */
+        max-width: 45%;
+    }
+
+    .hombre, .mujer {
+        width: 45%; /* Dos elementos en línea */
+        margin: 12px; /* Espacio reducido entre los cuadros */
+    }
+
+    .video-container {
+        width: 48%; /* Dos videos en fila */
+    }
+
+    .videos {
+        margin: 40px 5%; /* Espaciado vertical con márgenes laterales */
+    }
+
+    #videos2 {
+        padding: 40px; /* Espaciado mayor en pantallas grandes */
+    }
+
+    #videos2 .video-container {
+        max-width: 80%; /* Ancho mayor en pantallas grandes */
+    }
+
+    .footer {
+        flex-direction: column; /* Cambia a una columna en lugar de filas */
+        align-items: center; /* Centra las columnas */
+    }
+
+    .footer-column {
+        margin: 20px 0; /* Ajusta el margen vertical */
+        text-align: center; /* Centra el texto dentro de cada columna */
+    }
+
+    .footer-logo {
+        max-width: 150px; /* Ajusta el tamaño del logo */
+        margin: 20px 0; /* Espacio alrededor del logo */
+    }
+
+    .whatsapp-icon {
+        width: 50px; /* Ancho para pantallas más pequeñas */
+        height: 50px; /* Alto para pantallas más pequeñas */
+        font-size: 25px; /* Tamaño del ícono */
+    }
+    
+    #Envio {
+        font-size: 19px; /* Ajusta el tamaño de la fuente */
+        margin-top: 40px; /* Ajusta el margen superior */
+    }
+    
+    #Preguntas {
+        font-size: 16px; /* Ajusta el tamaño de la fuente */
+    }
+    
+     #ventanaproductos .productos-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para pantallas de hasta 1000px */
+    }
+
+    #ventanaproductos .producto {
+        min-width: 250px; /* Establecer un ancho mínimo para mantener el tamaño */
+        padding: 20px; /* Aumentar el espaciado interno */
+    }
+
+    #ventanaproductos .filtros {
+        flex-wrap: wrap; /* Permite que los filtros se ajusten en múltiples líneas */
+        justify-content: center; /* Centra los filtros */
+    }
+
+    #ventanaproductos h2 {
+        font-size: 40px; /* Tamaño de fuente del título reducido */
+    }
+    
+    #Carrito h2 {
+        font-size: 35px; /* Reduce el tamaño de la fuente */
+    }
+    
+    #Carrito .button-carrito {
+        padding: 8px 16px; /* Ajusta el tamaño del botón */
+    }
+    
+    #Guia h2 {
+        font-size: 35px; /* Reduce el tamaño de la fuente */
+    }
+
+    .guia-imagen {
+        max-width: 60%; /* Ajusta el tamaño de la imagen */
+    }
+
+    #Guia p {
+        font-size: 16px; /* Ajusta el tamaño de la fuente del párrafo */
+    }
+
+    .tabla-tallas {
+        width: 90%; /* Aumenta el ancho de la tabla */
+    }
+    
+     .image-section {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .section-title {
+        font-size: 30px; /* Reduce el tamaño de la fuente */
+    }
+    
+    #mapa h2 {
+        font-size: 28px; /* Ajusta el tamaño de la fuente del título */
+    }
+    
+}
+
+@media(max-width:600px) {
+    header.logo {
+        font-size: 10px;
+        margin-left: 8px;
+    }
+
+    header ul {
+        width: 100%;
+    }
+
+    .submenu {
+        position: static; /* Para que el submenú se muestre correctamente */
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+    header ul li:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el ratón */
+    }
+
+    .marquee-section marquee {
+        font-size: 1.2rem; /* Reduce el tamaño en pantallas pequeñas */
+    }
+
+    .carousel-overlay h2 {
+        font-size: 1.5rem; /* Ajusta el tamaño del texto */
+    }
+
+    .carousel-button {
+        font-size: 0.9rem; /* Ajusta el tamaño del botón */
+    }
+
+    .producto, .producto1, .producto2 {
+        flex: 0 1 90%; /* Un producto por fila */
+        max-width: 90%; /* Ajusta el ancho máximo */
+    }
+
+    .hombre, .mujer {
+        width: 100%; /* Un elemento por fila */
+        margin: 10px 0; /* Espacio arriba y abajo */
+    }
+
+    #videos1 h2 {
+        font-size: 24px; /* Tamaño de fuente más pequeño */
+    }
+
+    .video-container {
+        width: 100%; /* Un solo video por fila */
+        margin-bottom: 15px; /* Espacio entre videos */
+    }
+
+    .videos {
+        margin: 10px; /* Espaciado reducido */
+    }
+
+    #videos2 {
+        padding: 10px; /* Espaciado menor en pantallas pequeñas */
+    }
+
+    #videos2 .video-container {
+        max-width: 100%; /* Ancho completo en pantallas pequeñas */
+        border: none; /* Quitar el borde en pantallas pequeñas, si se desea */
+    }
+
+    .footer {
+        padding: 10px; /* Reduce el padding */
+    }
+
+    .footer-column {
+        margin: 10px 0; /* Reduce el margen */
+    }
+
+    .pagina1, .pagina2 {
+        font-size: 14px; /* Ajusta el tamaño de la fuente */
+    }
+
+    .footer-logo {
+        max-width: 120px; /* Reduce el tamaño del logo para pantallas más pequeñas */
+    }
+
+    .copyright-text {
+        font-size: 12px; /* Ajusta el tamaño del texto de derechos reservados */
+        padding: 5px; /* Reduce el padding */
+    }
+
+    .whatsapp-icon {
+        width: 40px; /* Ancho para pantallas aún más pequeñas */
+        height: 40px; /* Alto para pantallas aún más pequeñas */
+        font-size: 20px; /* Tamaño del ícono */
+        bottom: 15px; /* Ajusta la distancia del fondo */
+        right: 15px; /* Ajusta la distancia de la derecha */
+    }
+
+
+    .whatsapp-icon:hover {
+        background-color: #128C7E; /* Color al pasar el ratón */
+        transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+    }
+    
+    #Envio {
+        font-size: 17px; /* Ajusta el tamaño de la fuente */
+        margin-top: 30px; /* Ajusta el margen superior */
+        padding: 10px; /* Reduce el padding */
+    }
+    
+    #Preguntas {
+        font-size: 14px; /* Tamaño más pequeño para dispositivos móviles */
+    }
+    
+    #ventanaproductos .filtros {
+        flex-direction: column; /* Filtros en columna */
+        align-items: flex-start; /* Alineación a la izquierda */
+    }
+
+    #ventanaproductos .filtros .filtrar-boton {
+        width: 100%; /* Botón a ancho completo */
+    }
+
+    #ventanaproductos .productos-container {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+
+    #ventanaproductos h2 {
+        font-size: 30px; /* Tamaño de fuente del título reducido aún más */
+    }
+    
+    #Carrito {
+        margin-top: 50px; /* Ajusta el margen superior */
+        margin-bottom: 200px; /* Ajusta el margen inferior */
+    }
+
+    #Carrito h2 {
+        font-size: 30px; /* Reduce aún más el tamaño de la fuente */
+    }
+    
+    #Carrito .button-carrito {
+        padding: 6px 12px; /* Ajusta el tamaño del botón */
+        font-size: 14px; /* Ajusta el tamaño de la fuente del botón */
+    }
+    
+    #Guia h2 {
+        font-size: 30px; /* Reduce aún más el tamaño de la fuente */
+    }
+
+    .guia-imagen {
+        max-width: 80%; /* Ajusta el tamaño de la imagen */
+    }
+
+    #Guia p {
+        font-size: 14px; /* Ajusta el tamaño de la fuente del párrafo */
+    }
+
+    .tabla-tallas {
+        width: 100%; /* Aumenta el ancho de la tabla */
+    }
+    
+    .section-title {
+        font-size: 24px; /* Reduce aún más el tamaño de la fuente */
+    }
+
+    .small-image-container {
+        padding: 5px; /* Reduce el padding para una mejor visualización */
+    }
+     #mapa {
+        padding: 15px; /* Reduce el padding para pantallas pequeñas */
+    }
+
+    #mapa h2 {
+        font-size: 24px; /* Reduce el tamaño de la fuente del título */
+        margin-bottom: 15px; /* Espacio debajo del título reducido */
+    }
+    
+}

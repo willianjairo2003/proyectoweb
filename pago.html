@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmar Pago</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pago.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Cargar el complemento jsPDF AutoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagenes/logo.png" alt="Logo" class="logo-img">
+                <h2>JAalfa</h2>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="payment-section">
+            <h2><strong>Confirmar Pago</strong></h2>
+
+            <!-- Resumen de los productos en el carrito -->
+            <div class="order-summary">
+                <h3>Resumen de tu compra:</h3>
+                <div id="cartItemsSummary">
+                    <!-- Aquí se mostrarán los productos del carrito -->
+                </div>
+                <div id="totalPriceSummary">
+                    <!-- Aquí se mostrará el total de la compra -->
+                </div>
+            </div>
+
+            <!-- Formulario de información de pago -->
+            <form id="paymentForm" class="payment-form">
+                <h3>Información de pago</h3>
+                <!-- Campos del formulario -->
+                <div class="input-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>
+                </div>
+                <div class="input-group">
+                    <label for="phoneNumber">Número de teléfono:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+51 956789012" required>
+                </div>
+                <div class="input-group">
+                    <label for="dni">Número de DNI:</label>
+                    <input type="text" id="dni" name="dni" placeholder="Número de DNI" required>
+                </div>
+                <div class="input-group">
+                    <label for="city">Ciudad:</label>
+                    <select id="city" name="city" required>
+                        <option value="">Seleccionar ciudad...</option>
+                        <option value="Lima">Lima</option>
+                        <option value="Arequipa">Arequipa</option>
+                        <option value="Cusco">Cusco</option>
+                        <option value="Trujillo">Trujillo</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="address">Dirección:</label>
+                    <input type="text" id="address" name="address" placeholder="Calle ..." required>
+                </div>
+                <div class="input-group">
+                    <label for="shippingMethod">Método de envío:</label>
+                    <select id="shippingMethod" name="shippingMethod" required>
+                        <option value="standard">Envío estándar (3-5 días)</option>
+                        <option value="express">Envío exprés (1-2 días)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="cardNumber">Realiza el pago a este número "965132680":</label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Colocar el #de operación del Yape o Plin" required>
+                </div>
+                <div class="input-group checkbox-group">
+                    <input type="checkbox" id="confirmOrder" name="confirmOrder" required>
+                    <label for="confirmOrder"><strong>Confirmo que los datos son correctos y deseo proceder con el pago</strong></label>
+                </div>
+                <button type="submit" id="submitPayment" class="btn-confirm">Confirmar Pedido</button>
+            </form>
+
+            <!-- Mensaje de confirmación -->
+            <div id="confirmationMessage" style="display:none;">
+                <p>¡Pedido Confirmado! Gracias por tu compra.</p>
+                <button id="downloadPDF" class="btn-confirm" style="display:none;">Descargar Reporte en PDF</button>
+            </div>
+
+            <!-- Ventana flotante para la vista previa del PDF -->
+            <div id="pdfPreviewModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 9999;">
+                <div style="background-color: white; padding: 20px; width: 80%; max-width: 600px; text-align: center;">
+                    <h2>Vista Previa del PDF</h2>
+                <div id="pdfPreviewContent" style="margin: 20px 0;">
+                <!-- Aquí se mostrará el contenido del PDF (por ejemplo, el texto de la compra) -->
+                </div>
+                    <button onclick="closePreviewModal()">Cerrar Vista Previa</button>
+                    <button id="confirmDownloadBtn" onclick="downloadPDF()" style="display:none;">Descargar PDF</button>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>&copy; JAalfa - Perú 2024. Todos los derechos reservados.</div>
+        </div>
+    </footer>
+
+    <script src="pago.js"></script>
+    
+</body>
+</html>

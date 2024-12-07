@@ -1,0 +1,418 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 8 sept 2024, 21:15:53
+    Author     : JJairo
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+        
+    
+}
+body{
+    background-color: #f5f5f5;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  
+}
+header{
+    position: fixed; /* Mantiene el header fijo en la parte superior */
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 0 10px black;
+    background: #111;
+}
+
+#chk1{
+    display: none;
+    
+}
+
+i{
+    color: white;
+    cursor: pointer;
+}
+
+
+header .logo{
+    flex:1;
+    color: white;
+    margin-left: 50px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    
+}
+
+header .logo a{
+    text-decoration: none;
+    
+}
+
+header .logo-img {
+    height: 60px; /* Ajusta la altura según sea necesario */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Alineación vertical */
+  
+}
+header .logo-title {
+    display: inline; /* Mantiene el texto en línea con el logo */
+    color: white; /* Color del texto */
+    font-size: 1.5rem; /* Tamaño de fuente, ajusta según prefieras */
+    margin-left: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Alineación vertical */
+    text-transform: none;
+}
+
+
+header .search-box{
+    flex: 1;
+    position: relative;
+}
+.search-box input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 30px;
+    color: gray;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 40px;
+
+}
+
+.search-box button {
+    cursor: pointer;
+    width: 40px; /* Aumenta un poco el tamaño */
+    height: 40px; /* Aumenta un poco el tamaño */
+    border-radius: 50%; /* Mantén el botón completamente redondeado */
+    border: none;
+    position: absolute;
+    top: 1%; /* Centra verticalmente el botón */
+    right: 0px; /* Ajusta este valor para mover el botón hacia la derecha */
+    transform: translateY(-50%) scale(0.9); /* Centra verticalmente y aplica un pequeño escalado */
+    background: green;
+    display: flex; /* Permite centrar el icono dentro del botón */
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para un efecto más moderno */
+    
+    
+}
+
+
+header ul{
+    flex:2;
+    display: flex;
+    justify-content: space-evenly;
+}
+header ul li{
+    list-style: none;
+    position: relative;
+    
+    
+}
+header ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+}
+header ul li a:hover{
+    border-bottom: 2px solid cadetblue;
+}
+header .menu{
+    font-size: 2.5em;
+    display: none;
+}
+
+.submenu {
+    display: none; /* Ocultar por defecto */
+    position: absolute; /* Asegura que el submenú se posicione correctamente */
+    left: 0; /* Alinea el submenú al lado izquierdo */
+    right: 0; /* Asegura que ocupe todo el ancho del elemento padre */
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo del submenú */
+    z-index: 999; /* Asegura que esté por encima de otros elementos */
+    transition: all 0.3s ease; /* Suaviza la aparición y desaparición */
+}
+
+.submenu-toggle-input {
+    display: none; /* Ocultar el checkbox */
+}
+
+.submenu-toggle-input:checked + .submenu {
+    display: block; /* Mostrar el submenú cuando el checkbox está marcado */
+}
+
+.submenu li {
+    width: 100%; /* Asegura que los elementos del submenú ocupen el ancho completo */
+}
+
+.submenu li a {
+    padding: 10px 15px; /* Espaciado interno */
+    color: white; /* Color del texto del submenú */
+    display: block; /* Asegura que toda el área sea clicable */
+    text-transform: none;
+}
+
+.submenu li a:hover {
+    background-color: cadetblue; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo del icono (pacman) */
+.submenu-toggle {
+    cursor: pointer; /* Cambia el cursor para indicar clickeable */
+    color: white; /* Color del icono */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.submenu-toggle:hover {
+    color: lightgray; /* Cambia el color al pasar el ratón, pero no al hacer clic */
+}
+
+.submenu-toggle-input:checked + .submenu-toggle {
+    color: white; /* Mantiene el color original cuando el submenú está abierto */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.image-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Color de fondo opcional */
+    margin-top: 350px;
+}
+
+.image-side img {
+    max-width: 100%;
+    height: auto;
+}
+
+.registro {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenido {
+    display: flex; /* Utiliza flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    height: 150px; /* Altura fija del contenedor */
+    border-radius: 15px; /* Bordes redondeados */
+    margin-top: 160px; 
+}
+
+/* Estilo de la imagen dentro del contenedor */
+.contenido img {
+    width: 100px; /* Ancho fijo de la imagen */
+    height: 100px; /* Altura fija de la imagen */
+    object-fit: contain; /* Ajusta la imagen para que se ajuste sin recortar */
+    padding: 60px 0 0 0; /* Relleno superior de la imagen */
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center; /* Centra el título */
+    font-size: 40px;
+    border-bottom: 2px solid #e2e0e0;
+}
+
+h3 {
+    text-align: center; /* Centra el subtítulo */
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el formulario */
+}
+
+form div {
+    margin: 10px 0; /* Espacio vertical entre campos */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+form input {
+    width: 80%; /* Ancho del campo de entrada */
+    padding: 10px; /* Relleno del campo de entrada */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #e2e0e0; /* Borde del campo */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+form button {
+    margin-top: 20px;
+    padding: 10px 20px; /* Relleno del botón */
+    background-color: #007bff; /* Color del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 15px;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Color al pasar el ratón */
+}
+
+.whatsapp-icon {
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 20px; /* Distancia del fondo */
+    right: 20px; /* Distancia de la derecha */
+    background-color: #25D366; /* Color de fondo de WhatsApp */
+    color: white; /* Color del ícono */
+    border-radius: 50%; /* Hace que sea circular */
+    width: 60px; /* Ancho del ícono */
+    height: 60px; /* Alto del ícono */
+    padding: 0; /* Eliminar espaciado interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    font-size: 30px; /* Ajusta el tamaño del ícono si es necesario */
+    text-align: center; /* Centrar el contenido */
+    display: flex; /* Para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.whatsapp-icon:hover {
+    background-color: #128C7E; /* Color al pasar el ratón */
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+
+
+@media (max-width: 1000px) {
+    header ul {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 100px);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+
+    #chk1:checked ~ ul {
+        right: 0; /* Muestra el menú al hacer clic */
+    }
+
+    header .menu {
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .submenu {
+        position: static; /* Para que el submenú se muestre correctamente */
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+    header ul li:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el ratón */
+    }
+
+    .whatsapp-icon {
+        width: 50px; /* Ancho para pantallas más pequeñas */
+        height: 50px; /* Alto para pantallas más pequeñas */
+        font-size: 25px; /* Tamaño del ícono */
+    }
+
+    /* Acomoda las etiquetas h1 y h3 */
+    h1 {
+        font-size: 30px; /* Tamaño reducido */
+    }
+
+    h3 {
+        font-size: 18px; /* Tamaño reducido */
+    }
+
+    .contenido {
+        flex-direction: column; /* Cambia a columna */
+        align-items: center; /* Centra los elementos */
+    }
+}
+
+@media (max-width: 600px) {
+    header .logo {
+        font-size: 10px;
+        margin-left: 8px;
+    }
+
+    header ul {
+        width: 100%;
+    }
+
+    .submenu {
+        position: static; /* Para que el submenú se muestre correctamente */
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+    header ul li:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el ratón */
+    }
+
+    .whatsapp-icon {
+        width: 40px; /* Ancho para pantallas aún más pequeñas */
+        height: 40px; /* Alto para pantallas aún más pequeñas */
+        font-size: 20px; /* Tamaño del ícono */
+        bottom: 15px; /* Ajusta la distancia del fondo */
+        right: 15px; /* Ajusta la distancia de la derecha */
+    }
+
+    .contenido {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos */
+        margin-top: 80px; /* Ajusta el margen superior */
+    }
+
+    h1 {
+        font-size: 24px; /* Tamaño reducido para pantallas pequeñas */
+    }
+
+    h3 {
+        font-size: 16px; /* Tamaño reducido para pantallas pequeñas */
+    }
+
+    form input {
+        width: 90%; /* Aumenta el ancho de los campos en móviles */
+    }
+
+    form button {
+        width: 90%; /* Aumenta el ancho del botón */
+    }
+}
+

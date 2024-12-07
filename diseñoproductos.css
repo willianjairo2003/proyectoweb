@@ -1,0 +1,575 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 19 nov 2024, 21:44:26
+    Author     : JJairo
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+        
+    
+}
+
+body{
+    background-color: #f5f5f5;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    
+    
+}
+header{
+    position: fixed; /* Mantiene el header fijo en la parte superior */
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 0 10px black;
+    background: #111;
+}
+
+#chk1{
+    display: none;
+    
+}
+
+i{
+    color: white;
+    cursor: pointer;
+}
+
+
+header .logo{
+    flex:1;
+    color: white;
+    margin-left: 50px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    
+}
+
+header .logo a{
+    text-decoration: none;
+    
+}
+
+header .logo-img {
+    height: 60px; /* Ajusta la altura según sea necesario */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Alineación vertical */
+  
+}
+header .logo-title {
+    display: inline; /* Mantiene el texto en línea con el logo */
+    color: white; /* Color del texto */
+    font-size: 1.5rem; /* Tamaño de fuente, ajusta según prefieras */
+    margin-left: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Alineación vertical */
+    text-transform: none;
+}
+
+
+header .search-box{
+    flex: 1;
+    position: relative;
+}
+.search-box input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 30px;
+    color: gray;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 40px;
+
+}
+
+.search-box button{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    border:none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.9);
+    background: green;
+}
+
+header ul{
+    flex:2;
+    display: flex;
+    justify-content: space-evenly;
+}
+header ul li{
+    list-style: none;
+    position: relative;
+    
+    
+}
+header ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+}
+header ul li a:hover{
+    border-bottom: 2px solid cadetblue;
+}
+header .menu{
+    font-size: 2.5em;
+    display: none;
+}
+
+.submenu {
+    display: none; /* Ocultar por defecto */
+    position: absolute; /* Asegura que el submenú se posicione correctamente */
+    left: 0; /* Alinea el submenú al lado izquierdo */
+    right: 0; /* Asegura que ocupe todo el ancho del elemento padre */
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo del submenú */
+    z-index: 999; /* Asegura que esté por encima de otros elementos */
+    transition: all 0.3s ease; /* Suaviza la aparición y desaparición */
+}
+
+.submenu-toggle-input {
+    display: none; /* Ocultar el checkbox */
+}
+
+.submenu-toggle-input:checked + .submenu {
+    display: block; /* Mostrar el submenú cuando el checkbox está marcado */
+}
+
+.submenu li {
+    width: 100%; /* Asegura que los elementos del submenú ocupen el ancho completo */
+}
+
+.submenu li a {
+    padding: 10px 15px; /* Espaciado interno */
+    color: white; /* Color del texto del submenú */
+    display: block; /* Asegura que toda el área sea clicable */
+    text-transform: none;
+}
+
+.submenu li a:hover {
+    background-color: cadetblue; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo del icono (pacman) */
+.submenu-toggle {
+    cursor: pointer; /* Cambia el cursor para indicar clickeable */
+    color: white; /* Color del icono */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.submenu-toggle:hover {
+    color: lightgray; /* Cambia el color al pasar el ratón, pero no al hacer clic */
+}
+
+.submenu-toggle-input:checked + .submenu-toggle {
+    color: white; /* Mantiene el color original cuando el submenú está abierto */
+}
+
+.footer1{
+   background-color: black;
+   padding-bottom: 20px; /* Asegura que el footer tenga suficiente espacio en la parte inferior */
+   padding-top: 150px;
+    
+}
+
+.footer {
+    display: flex; /* Usar flexbox para el diseño de columnas */
+    justify-content: space-around; /* Espacio entre las columnas */
+    background-color: black; /* Color de fondo del pie de página */
+    padding: 20px; /* Espaciado interno */
+    
+}
+
+.footer-column {
+    flex: 1; /* Cada columna ocupa el mismo espacio */
+    text-align: left; /* Centrar el texto dentro de cada columna */
+    color: white;
+    margin: 0 70px;
+}
+
+.pagina1, .pagina2 {
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Color del texto */
+    margin-bottom: 20px;
+}
+
+.pagina2 a {
+    text-decoration: none; /* Sin subrayado en enlaces de pagina2 */
+    color: white; /* Color del texto */
+}
+
+.pagina2 a:hover {
+    text-decoration:none ; /* Subrayar al pasar el ratón */
+}
+
+
+/* Estilo para el logo */
+.footer-logo {
+    max-width: 200px; /* Ajusta el tamaño máximo del logo */
+    margin-top: -100px;
+    height: auto; /* Mantiene la proporción del logo */
+    margin-bottom: -20px; /* Espacio entre el logo y el texto de derechos reservados */
+}
+
+
+.footer-column.copyright {
+    margin-top: 100px; /* Ajusta este valor según lo necesites */
+    text-align: center; 
+}
+
+.copyright-text {
+    text-align: center; /* Centra el texto */
+    color: white; /* Color del texto */
+    margin-top: 10px; /* Espacio superior */
+    background-color: black; /* Fondo para mantener la coherencia */
+    padding: 10px; /* Espaciado interno */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+
+.copyright-text::before {
+    content: ''; /* Crea un pseudo-elemento */
+    position: absolute; /* Posición absoluta respecto al contenedor */
+    top: 0; /* Posición en la parte superior */
+    left: 0;
+    right: 0;
+    height: 1px; /* Grosor de la línea */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)); 
+    /* Degradado de blanco a transparente */
+}
+
+.pagina2 a {
+    text-decoration: none; /* Sin subrayado por defecto */
+    color: white; /* Color del texto */
+}
+
+.pagina2 a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+    color: white; /* Asegúrate de que el color se mantenga blanco */
+}
+
+.whatsapp-icon {
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 20px; /* Distancia del fondo */
+    right: 20px; /* Distancia de la derecha */
+    background-color: #25D366; /* Color de fondo de WhatsApp */
+    color: white; /* Color del ícono */
+    border-radius: 50%; /* Hace que sea circular */
+    width: 60px; /* Ancho del ícono */
+    height: 60px; /* Alto del ícono */
+    padding: 0; /* Eliminar espaciado interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    font-size: 30px; /* Ajusta el tamaño del ícono si es necesario */
+    text-align: center; /* Centrar el contenido */
+    display: flex; /* Para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.whatsapp-icon:hover {
+    background-color: #128C7E; /* Color al pasar el ratón */
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+
+
+/* Estilo para la sección del producto */
+.product-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+/* Contenedor de la imagen principal y mini carrusel */
+.product-images {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen principal */
+.product-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Mini carrusel (imagenes pequeñas) */
+.image-carousel {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+    overflow: hidden; /* Evita el scroll */
+    max-width: 500px; /* Limita el tamaño del carrusel */
+}
+
+/* Estilo para las miniaturas */
+.image-carousel img {
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Efecto al pasar el mouse sobre las miniaturas */
+.image-carousel img:hover {
+    transform: scale(1.1);
+}
+
+/* Contenedor de la información del producto */
+.product-info {
+    flex: 1;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Nombre del producto */
+.product-name {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Precio */
+.product-price {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+/* Selector de talla */
+.product-sizes {
+    margin-bottom: 20px;
+}
+
+.product-sizes label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Selector de cantidad */
+.product-quantity {
+    margin-bottom: 20px;
+}
+
+.product-quantity label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.product-quantity input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para los botones */
+.product-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Botón "Añadir al carrito" */
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+/* Botón "Comprar ahora" */
+.buy-now {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-now:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries */
+@media (max-width: 1000px) {
+  .search-box button {
+        position: absolute;
+    }
+
+    header ul {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 100px);
+        width: 100%; /* Cambié a 100% para ocupar todo el ancho */
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+
+    #chk1:checked ~ ul {
+        right: 0; /* Muestra el menú al hacer clic */
+    }
+
+    header .menu {
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .submenu {
+        position: static; /* Para que el submenú se muestre correctamente */
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+    header ul li:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el ratón */
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .product-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-info {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .image-carousel {
+        justify-content: center;
+    }
+    
+     /* Asegurar que los botones se adapten en pantallas más pequeñas */
+    .product-buttons {
+        flex-direction: column;
+        gap: 10px; /* Menor espacio entre botones */
+    }
+
+    .add-to-cart, .buy-now {
+        width: 100%; /* Los botones ocupan el 100% del ancho disponible */
+        padding: 15px 0; /* Aumentar el alto de los botones */
+        font-size: 18px; /* Ajustar el tamaño de la fuente */
+    }
+}
+
+@media (max-width: 600px) {
+    header.logo {
+        font-size: 10px;
+        margin-left: 8px;
+    }
+
+    header ul {
+        width: 100%;
+    }
+
+    .submenu {
+        position: static; /* Para que el submenú se muestre correctamente */
+        width: 100%; /* Ocupa el ancho completo */
+    }
+
+    header ul li:hover .submenu {
+        display: block; /* Muestra el submenú al pasar el ratón */
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin: 10px 0;
+    }
+
+    .product-section {
+        padding: 20px;
+    }
+
+    .product-info {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .product-name {
+        font-size: 1.5rem;
+    }
+
+    .product-price {
+        font-size: 1.2rem;
+    }
+
+
+    .whatsapp-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+    
+    /* Para pantallas aún más pequeñas */
+    .product-buttons {
+        flex-direction: column;
+        gap: 10px; /* Espacio reducido entre los botones */
+    }
+
+    .add-to-cart, .buy-now {
+        width: 100%; /* Los botones ocupan el 100% del ancho disponible */
+        padding: 15px 0; /* Mayor altura para los botones */
+        font-size: 18px; /* Ajustar tamaño de la fuente */
+    }
+}

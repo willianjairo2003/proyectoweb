@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="diseñoproductos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" name="" id="chk1">
+            <div class="logo">
+            <a href="index.html"> 
+            <img src="imagenes/logo.png" alt="Logo" class="logo-img">
+            <h2 class="logo-title"><em>JAalfa</em></h2>
+            </a>
+            </div>
+           
+            
+            <ul>
+                <li><a href="productos.html">Productos</a></li>
+                <li>
+                    <a href="#">Servicios</a>
+                    <label class="submenu-toggle" for="submenu-toggle"><i class="fa fa-chevron-down"></i></label>
+                        <input type="checkbox" id="submenu-toggle" class="submenu-toggle-input">
+                    <ul class="submenu">
+                        <li><a href="buscartienda.html">Buscar Tienda</a></li>
+                        <li><a href="registro.html">Regístrate</a></li>
+                        <li><a href="login.html">Iniciar Sesión</a></li>
+                    </ul>
+                </li>
+                <li><a href="hombres.html">Hombres</a></li>
+                <li><a href="mujeres.html">Mujeres</a></li>
+                <li><a href="guiatallas.html">Tallas</a></li>
+                <li>
+                    <a href="carritocompras.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+            </ul>
+            <div class="menu">
+                <label for="chk1">
+                    <i class="fa fa-bars"></i>
+                </label>
+            </div>
+        </header><br><br><br><br><br>
+        
+        
+    <section class="product-section">
+    <!-- Contenedor de imágenes del producto -->
+    <div class="product-images">
+        <!-- Imagen principal del producto -->
+        <img src="imagenes/rosado.png" alt="Modelo de Zapatillas" class="product-image"  id="mainImage">
+        
+        <!-- Mini carrusel para otras imágenes -->
+        <div class="image-carousel">
+            <img src="imagenes/rosado1.jpg" alt="Vista 1" onclick="changeImage('imagenes/rosado1.jpg')">
+            <img src="imagenes/rosado.png" alt="Vista 2" onclick="changeImage('imagenes/rosado.png')">
+      
+        </div>
+    </div>
+
+    <!-- Contenedor de la información del producto -->
+    <div class="product-info">
+        <!-- Nombre del producto -->
+        <h1 class="product-name">Adidas forum rosado</h1>
+
+        <!-- Precio del producto -->
+        <p class="product-price">S/. 319.00 PEN </p>
+
+        <!-- Selector de talla -->
+        <div class="product-sizes">
+            <label for="sizes">Talla:</label>
+            <select id="sizes" name="sizes">
+                <option value="36">36</option>
+                <option value="36.5">36.5</option>
+                <option value="37.5">37.5</option>
+                <option value="38">38</option>
+                <option value="38.5">38.5</option>
+                <option value="39">39</option>
+            </select>
+        </div>
+
+        <!-- Selector de cantidad -->
+        <div class="product-quantity">
+            <label for="quantity">Cantidad:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+        </div>
+
+         <!-- Botones de acción -->
+        <div class="product-buttons">
+            <button class="add-to-cart" id="addToCartButton">Añadir al carrito</button>
+            <button class="buy-now" id="buyNowButton">Comprar ahora</button>
+        </div>
+    </div>
+    </section>
+        
+    <footer class="footer1">
+            <footer class="footer">
+            <div class="footer-column">
+                <div class="pagina1"><strong>INFORMACIÓN</strong><br></div>
+                <div class="pagina1">Si deseas mayor información<br> Escríbenos al WhatsApp</div>
+                <div class="pagina1">WhatsApp: +51 965132680<br></div>
+        
+            </div>
+            <div class="footer-column">
+                <div class="pagina1"><strong>POLÍTICAS</strong><br></div>
+                <div class="pagina2"><a href="envio.html">Política de envío</a><br>
+                </div>
+                <div class="pagina2"><a href="preguntas.html">Preguntas frecuentes</a><br>
+                </div>
+                <div class="pagina2"><a href="buscartienda.html">Buscar tienda</a><br>
+                </div>
+            </div>
+            <div class="footer-column copyright">
+                <img src="imagenes/logo.png" alt="Logo" class="footer-logo"><br>
+            </div>
+            </footer>
+            <div>    
+                <div class="copyright-text">® JAalfa - Perú 2024. Todos los derechos reservados.</div>
+            </div>
+        </footer>
+     <!-- Icono flotante de WhatsApp -->
+         <a href="https://wa.link/s586j1" class="whatsapp-icon" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
+     <script src="interaccionproductos.js"></script>
+    </body>
+</html>
